@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register interest – Cue Stars Christmas Party 2027</title>
+  <meta name="description" content="Let the Cue Stars know if you can make the Christmas party.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --baize: #1E5B3A;
+      --baize-deep: #143F28;
+      --cushion: #5A2E17;
+      --red: #C8102E;
+      --yellow: #F2C230;
+      --paper: #F7F3E8;
+      --ink: #1A1A1A;
+      --muted: #5D574A;
+      --display: "Alfa Slab One", Georgia, serif;
+      --body: "Work Sans", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--paper);
+      background: var(--baize);
+      background-image:
+        radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
+      background-size: 3px 3px, 5px 5px;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 4px; }
+    .wrap { width: min(1100px, 100% - 2.5rem); margin-inline: auto; }
+
+    .topbar { border-bottom: 10px solid var(--cushion); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25); }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; padding-block: 1rem; }
+    .brand { font-family: var(--display); font-size: 1.35rem; text-decoration: none; }
+    .brand span { color: var(--yellow); }
+    .topbar nav a { text-decoration: none; font-weight: 500; }
+    .topbar nav a:hover { color: var(--yellow); }
+
+    main { flex: 1; padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+    h1 {
+      font-family: var(--display); font-weight: 400;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.02; margin: 0 0 .75rem;
+    }
+    .intro { max-width: 48ch; margin: 0 0 2rem; font-size: 1.15rem; }
+
+    /* The card sits on the table like a scorecard */
+    .card {
+      background: var(--paper); color: var(--ink);
+      border-radius: 14px;
+      border: 8px solid var(--cushion);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      max-width: 640px;
+    }
+
+    .field { margin: 0 0 1.75rem; }
+    label.text-label, legend {
+      display: block; font-weight: 700; font-size: 1.1rem; margin-bottom: .6rem; padding: 0;
+    }
+    input[type="text"] {
+      width: 100%;
+      font: inherit;
+      padding: .8rem 1rem;
+      border: 2px solid #CFC6AE;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink);
+    }
+    input[type="text"]:focus { border-color: var(--baize); outline: none; box-shadow: 0 0 0 3px rgba(30,91,58,.25); }
+
+    fieldset { border: 0; margin: 0 0 1.75rem; padding: 0; }
+    .options { display: grid; gap: .65rem; }
+    .option {
+      display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: center;
+      padding: .9rem 1rem;
+      border: 2px solid #CFC6AE; border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .option:hover { border-color: #A99F86; }
+    .option input { position: absolute; opacity: 0; pointer-events: none; }
+    /* custom tick box */
+    .tick {
+      width: 26px; height: 26px; border-radius: 6px;
+      border: 2px solid #A99F86; background: #fff;
+      display: grid; place-items: center;
+    }
+    .tick svg { width: 16px; height: 16px; opacity: 0; transform: scale(.4); transition: transform .15s ease, opacity .15s ease; }
+    .option:has(input:checked) { border-color: var(--baize); background: #EEF5F0; }
+    .option:has(input:checked) .tick { background: var(--baize); border-color: var(--baize); }
+    .option:has(input:checked) .tick svg { opacity: 1; transform: none; }
+    .option:has(input:focus-visible) { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--body); font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; cursor: pointer;
+      padding: .9rem 1.8rem;
+      border-radius: 999px;
+      background: var(--red); color: #fff;
+      border: 2px solid var(--red);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { background: #A60C25; transform: translateY(-2px); }
+    .btn[disabled] { opacity: .6; cursor: wait; transform: none; }
+
+    .message { margin: 1.25rem 0 0; font-weight: 500; }
+    .message.error { color: var(--red); }
+
+    .thanks { text-align: left; }
+    .thanks h2 { font-family: var(--display); font-weight: 400; font-size: 2rem; margin: 0 0 .5rem; }
+    .thanks p { margin: 0 0 1.5rem; max-width: 44ch; }
+    .thanks .btn { background: var(--baize); border-color: var(--baize); }
+
+    footer { padding-block: 2rem; font-size: .95rem; opacity: .8; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">Cue <span>Stars</span></a>
+      <nav aria-label="Main"><a href="index.html">Back to party info</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1>Register interest</h1>
+      <p class="intro">Let us know if you can make the Christmas party so we can plan numbers.</p>
+
+      <div class="card">
+        <form id="register-form" novalidate>
+          <div class="field">
+            <label class="text-label" for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required maxlength="80">
+          </div>
+
+          <fieldset>
+            <legend>Are you able to make it?</legend>
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="attendance" value="Yes, I am there" required>
+                <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Yes, I am there</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="attendance" value="Should be there, will know closer to the time">
+                <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Should be there, will know closer to the time</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="attendance" value="No, unfortunately I can't make it at this moment in time">
+                <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>No, unfortunately I can't make it at this moment in time</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="btn" type="submit" id="submit-btn">Send my response</button>
+          <p class="message" id="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="thanks" id="thanks" hidden>
+          <h2>Response sent</h2>
+          <p id="thanks-text">Thanks for letting us know.</p>
+          <a class="btn" href="index.html">Back to party info</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">Cue Stars Pool Team</div>
+  </footer>
+
+  <script type="module">
+    // ------------------------------------------------------------------
+    // Firebase settings for the stapleford-cue-stars project.
+    // Replace the REPLACE_ME values with the ones from:
+    // Firebase console > Project settings > General > Your apps > Web app > Config
+    // ------------------------------------------------------------------
+    const firebaseConfig = {
+      apiKey: "REPLACE_ME",
+      authDomain: "stapleford-cue-stars.firebaseapp.com",
+      projectId: "stapleford-cue-stars",
+      storageBucket: "stapleford-cue-stars.firebasestorage.app",
+      messagingSenderId: "REPLACE_ME",
+      appId: "REPLACE_ME"
+    };
+
+    const form = document.getElementById("register-form");
+    const message = document.getElementById("message");
+    const button = document.getElementById("submit-btn");
+
+    const configured = !Object.values(firebaseConfig).includes("REPLACE_ME");
+
+    // Load Firebase only when it's needed, so the form still works if it can't load
+    let firebase = null;
+    async function getFirebase() {
+      if (firebase) return firebase;
+      const [{ initializeApp }, fs] = await Promise.all([
+        import("https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"),
+        import("https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js")
+      ]);
+      firebase = { db: fs.getFirestore(initializeApp(firebaseConfig)), ...fs };
+      return firebase;
+    }
+
+    function showError(text) {
+      message.textContent = text;
+      message.className = "message error";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      message.textContent = "";
+
+      const name = form.name.value.trim();
+      const choice = form.querySelector('input[name="attendance"]:checked');
+
+      if (!name) { showError("Enter your name so we know who's replying."); form.name.focus(); return; }
+      if (!choice) { showError("Choose whether you can make it."); form.querySelector('input[name="attendance"]').focus(); return; }
+      if (!configured) { showError("The form isn't connected to Firebase yet. Add the Firebase settings to register.html."); return; }
+
+      button.disabled = true;
+      button.textContent = "Sending…";
+
+      try {
+        const { db, addDoc, collection, serverTimestamp } = await getFirebase();
+        await addDoc(collection(db, "christmas"), {
+          name,
+          attendance: choice.value,
+          submittedAt: serverTimestamp()
+        });
+        document.getElementById("thanks-text").textContent =
+          `Thanks ${name}, we've got your answer: "${choice.value}". If anything changes, just send the form again.`;
+        form.hidden = true;
+        document.getElementById("thanks").hidden = false;
+      } catch (err) {
+        console.error(err);
+        showError("Your response didn't send. Check your connection and try again.");
+        button.disabled = false;
+        button.textContent = "Send my response";
+      }
+    });
+  </script>
+</body>
+</html>
